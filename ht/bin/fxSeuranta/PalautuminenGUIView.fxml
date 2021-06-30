@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import fi.jyu.mit.fxgui.StringGrid?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="610.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@seuranta.css" fx:controller="fxSeuranta.SeurantaGUIController">
+   <bottom>
+      <AnchorPane prefHeight="610.0" prefWidth="1431.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1440.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Tiedosto">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleLisaaPalautuminen" text="Lisää" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAvaaPalautuminen" text="Avaa" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlePoistaUni" text="Poista Uni" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlePoistaTreeni" text="Poista Treeni" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlePoistaRuokailu" text="Poista Ruokailu" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSulje" text="Sulje" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Muokkaa">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaPalautuminen" text="Muokkaa" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Apua">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Käyttöohjeet" />
+                        <MenuItem mnemonicParsing="false" onAction="#avaaApuaOhjelmasta" text="Tietoa ohjelmasta" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TextField fx:id="hakuEdit" layoutX="14.0" layoutY="60.0" onKeyReleased="#handleHaku" prefHeight="25.0" prefWidth="248.0" promptText="Haku">
+               <effect>
+                  <Blend />
+               </effect></TextField>
+            <TitledPane fx:id="panelUni2" collapsible="false" layoutX="310.0" layoutY="60.0" prefHeight="461.0" prefWidth="1092.0" text="Seuranta">
+               <content>
+                  <AnchorPane fx:id="panelUni" prefHeight="435.0" prefWidth="1121.0">
+                  		<Label fx:id="labelVirhe" maxWidth="1000.0" />
+                     <children>
+                        <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="33.0" prefHeight="371.0" prefWidth="315.0" text="Uni">
+                           <content>
+                              <GridPane fx:id="gridUni" minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="313.0">
+                                 <children>
+                                    <Text layoutX="31.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unen pituus" GridPane.rowIndex="3" />
+                                    <TextField fx:id="editSyke" alignment="CENTER" layoutX="130.0" layoutY="62.0" prefHeight="25.0" prefWidth="171.0" promptText="bpm" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Text layoutX="22.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unen keskisyke" GridPane.rowIndex="4" />
+                                    <TextField fx:id="editSVV" alignment="CENTER" layoutX="130.0" layoutY="107.0" prefHeight="25.0" prefWidth="171.0" promptText="ms" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Päivämäärä" GridPane.rowIndex="2" />
+                                    <TextField fx:id="editPvm" alignment="CENTER" promptText="P.K.V" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="editPituus" alignment="CENTER" prefHeight="25.0" prefWidth="171.0" promptText="tuntia ja minuuttia" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sykevälivaihtelu" GridPane.rowIndex="5" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" collapsible="false" layoutX="358.0" layoutY="32.0" prefHeight="371.0" prefWidth="315.0" text="Ruokailu">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="328.0" prefWidth="313.0">
+                                 <children>
+                                    <StringGrid fx:id="tableRuokailu" editable="true" fixedCellSize="0.0" layoutX="20.0" prefHeight="341.0" prefWidth="273.0" rivit="Aika|Ruoka|Määrä&#10; | | |">
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </StringGrid>
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" collapsible="false" layoutX="694.0" layoutY="33.0" prefHeight="371.0" prefWidth="369.0" text="Treeni">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="339.0" prefWidth="367.0">
+                                 <children>
+                                    <StringGrid fx:id="tableTreeni" layoutX="2.0" layoutY="8.0" prefHeight="335.0" prefWidth="362.0" rivit="Liike|Paino|S&amp;T|Lisätietoja&#10;| | |" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <Button layoutX="15.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleLisaaPalautuminen" text="Lisää" />
+            <Button layoutX="310.0" layoutY="545.0" mnemonicParsing="false" onAction="#handlePoistaUni" text="Poista Uni" />
+            <Button layoutX="72.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleMuokkaaPalautuminen" text="Muokkaa" />
+            <Text layoutX="104.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arkisto">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ListChooser fx:id="chooserPalautuminen" layoutX="15.0" layoutY="117.0" rivit="5.1&#10;6.1&#10;7.1&#10;&#10;" />
+            <Button fx:id="buttonTreeni" layoutX="1329.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleLisaaTreeni" text="Uusi treeni" />
+            <Button fx:id="buttonRuokailu" layoutX="1224.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleLisaaRuokailu" text="Uusi Ruokailu" />
+            <Button fx:id="buttonTallenna" layoutX="149.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+            <Label layoutX="58.0" layoutY="36.0" text="Haku päivämäärän perusteella" />
+            <Button layoutX="1008.0" layoutY="545.0" mnemonicParsing="false" onAction="#handlePoistaTreeni" text="Poista treeni" />
+            <Button layoutX="672.0" layoutY="545.0" mnemonicParsing="false" onAction="#handlePoistaRuokailu" text="Poista Ruokailu" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

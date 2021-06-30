@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<TitledPane collapsible="false" prefHeight="493.0" prefWidth="366.0" stylesheets="@seuranta.css" text="Seuranta" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxSeuranta.TietueDialogController">
+   <content>
+      <AnchorPane prefHeight="200.0" prefWidth="1006.0">
+         <children>
+         	<Label fx:id="labelVirhe" maxWidth="1000.0" />
+            <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="33.0" prefHeight="371.0" prefWidth="315.0" text="Seuranta">
+               <content>
+                  <GridPane fx:id="gridTietue" minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="313.0">
+                     <children>
+                        <Text layoutX="31.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unen pituus" GridPane.rowIndex="3" />
+                        <TextField alignment="CENTER" layoutX="130.0" layoutY="62.0" prefHeight="25.0" prefWidth="171.0" promptText="bpm" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Text layoutX="22.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unen keskisyke" GridPane.rowIndex="4" />
+                        <Text layoutX="21.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sykevälivaihtelu" GridPane.rowIndex="5" />
+                        <TextField alignment="CENTER" layoutX="130.0" layoutY="107.0" prefHeight="25.0" prefWidth="171.0" promptText="ms" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Päivämäärä" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" promptText="P.K.V" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="171.0" promptText="tuntia ja minuuttia" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <Button fx:id="tallennaPalautuminen" layoutX="184.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleOK" text="Tallenna" />
+            <Button fx:id="peruutaTallennus" layoutX="272.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleCancel" text="Peruuta" />
+         </children>
+      </AnchorPane>
+   </content>
+</TitledPane>
