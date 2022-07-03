@@ -6,12 +6,14 @@ Course project from second programming course in Univeristy of Jyväskylä, soft
 - Track your training progress, nutrition and sleep. 
 
 ## In the gym:
+- Date
 - What type of exercise
 - Working weight
 - Description
 - Sets and reps
 
 ## Nutrition:
+- Date
 - Time of meal
 - Amounts of food
 - Meal type
